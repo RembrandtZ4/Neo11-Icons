@@ -156,7 +156,7 @@ GLYPHS.update({
 PLACES_EXTRA = {
  "folder": "folder", "inode-directory": "folder", "folder-documents": "f-docs", "folder-pictures": "f-pics", "folder-images": "f-pics",
  "folder-music": "f-music", "folder-sound": "f-music", "folder-videos": "f-videos", "folder-video": "f-videos",
- "folder-download": "f-down", "folder-downloads": "f-down", "folder-desktop": "f-desk", "user-desktop": "f-desk",
+ "folder-download": "f-down", "folder-downloads": "f-down", "folder-desktop": "f-desk",
  "user-home": "f-home", "folder-home": "f-home", "folder-cloud": "f-cloud", "folder-network": "f-net", "folder-remote": "f-net", "network-workgroup": "f-net",
  "user-trash": "trash", "trash-empty": "trash", "user-trash-full": "trash-full", "trash-full": "trash-full",
 }

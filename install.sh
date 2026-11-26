@@ -37,6 +37,10 @@ rm -rf "$ZIEL"
 mkdir -p "$HOME/.local/share/icons"
 cp -r "$QUELLE" "$ZIEL"
 
+# Original-Symbole schützen, die KDE sonst auf ein Silber-Symbol umbiegen würde
+# (z. B. Lautstärke-Symbol → Musikdatei-Symbol)
+python3 tools/protect.py "$ZIEL" breeze-dark breeze
+
 # Symbol-Zwischenspeicher leeren, damit KDE die neuen Symbole sofort zeigt
 rm -f "$HOME/.cache/icon-cache.kcache"
 command -v kbuildsycoca6 >/dev/null 2>&1 && kbuildsycoca6 >/dev/null 2>&1 || true

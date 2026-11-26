@@ -1,5 +1,10 @@
 # Änderungen
 
+## 1.2.0 – 26.11.2026
+
+- Schutz für Original-Symbole: KDE kürzt fehlende Symbolnamen und landete dabei auf Silber-Symbolen (z. B. Lautstärke im Systemabschnitt → Musikdatei). `tools/protect.py` verweist bei der Installation für alle betroffenen Namen auf die Breeze-Originale
+- „Arbeitsfläche anzeigen“ (user-desktop) nutzt wieder das Original; der Ordner „Schreibtisch“ bleibt silbern
+
 ## 1.1.2 – 26.11.2026
 
 - `./install.sh <Prozent>` merkt sich die gewählte Symbolgröße für spätere Updates

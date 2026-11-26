@@ -4,7 +4,7 @@ Weiß-silbernes Icon-Theme für KDE Plasma 6, passend zum Startmenü [Neo11Menu]
 
 - Eigene Symbole im einheitlichen Silberstil für die installierten Programme, für Ordner, Laufwerke und die häufigsten Dateitypen
 - Die Motive füllen etwa 90 % der Fläche und lassen etwas Luft – so wirken sie in der Taskleiste so zierlich wie unter Windows 11
-- Alle übrigen Symbole (Schaltflächen, seltene Dateitypen …) kommen automatisch von Breeze Dark
+- Alle übrigen Symbole (Schaltflächen, Systemabschnitt, seltene Dateitypen …) kommen automatisch von Breeze Dark – das Installskript sorgt dafür, dass KDE sie nicht versehentlich durch Silber-Symbole ersetzt
 - Markenprogramme (Browser, Steam, Mail …) bekommen bewusst eigene, neutrale Symbole statt ihrer Logos
 
 ![Übersicht](docs/uebersicht.png)
