@@ -38,8 +38,21 @@ python3 tools/generate.py
 ./install.sh
 ```
 
+## Mauszeiger „Neo11 Zeiger“
+
+Passende Mauszeiger im gleichen Stil: weiße, leicht silberne Formen mit weichem Schatten, 22 Zeiger (inkl. animiertem Warten-Kreis) in den Größen 24 bis 96 px.
+
+![Zeiger](docs/zeiger.png)
+
+```bash
+./install-zeiger.sh
+```
+
+Danach: **Systemeinstellungen ▸ Farben & Design ▸ Mauszeiger ▸ „Neo11 Zeiger“**.
+Die Zeiger werden mit `python3 zeiger/tools/generate_cursors.py` aus den Motiven im Skript erzeugt (benötigt `rsvg-convert`).
+
 ## Entfernen
 
 ```bash
-rm -rf ~/.local/share/icons/Neo11-Silber
+rm -rf ~/.local/share/icons/Neo11-Silber ~/.local/share/icons/Neo11-Zeiger
 ```

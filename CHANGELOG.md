@@ -1,5 +1,10 @@
 # Änderungen
 
+## 1.3.0 – 26.11.2026
+
+- Neu: Mauszeiger-Theme „Neo11 Zeiger“ – 22 eigene Zeiger im geometrischen Stil mit weichem Schatten, über 100 Aliasnamen für alle Programme, animiertes Warten und „Arbeitet im Hintergrund“, Größen 24–96 px
+- Installation mit `./install-zeiger.sh`
+
 ## 1.2.0 – 26.11.2026
 
 - Schutz für Original-Symbole: KDE kürzt fehlende Symbolnamen und landete dabei auf Silber-Symbolen (z. B. Lautstärke im Systemabschnitt → Musikdatei). `tools/protect.py` verweist bei der Installation für alle betroffenen Namen auf die Breeze-Originale
