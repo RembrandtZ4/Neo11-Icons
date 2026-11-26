@@ -20,7 +20,7 @@ def P(d, fill=FILL, rule=""):
     r = f' fill-rule="{rule}"' if rule else ""
     return f'<path d="{d}" fill="{fill}"{r} stroke="#3a3a3a" stroke-width=".35" stroke-linejoin="round"/>'
 
-DART = "M6 3.5L6.4 25.6 12.3 20 21.4 19.6z"
+DART = "M6 3.5L8.15 26.3 13.95 18.45 23.45 17.4z"
 def dart_small():
     return P(DART)
 

@@ -1,5 +1,9 @@
 # Änderungen
 
+## 1.3.3 – 26.11.2026
+
+- Mauszeiger: Pfeil-Neigung auf die Mitte zwischen 1.3.1 und 1.3.2 eingestellt
+
 ## 1.3.2 – 26.11.2026
 
 - Mauszeiger: Pfeil aufrechter (linke Kante fast senkrecht), dazu alle Zeiger mit Pfeil (Hilfe, Kopieren, Verknüpfen, Kontextmenü, Hintergrund-Arbeit)
