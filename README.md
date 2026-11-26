@@ -54,5 +54,5 @@ Die Zeiger werden mit `python3 zeiger/tools/generate_cursors.py` aus den Motiven
 ## Entfernen
 
 ```bash
-rm -rf ~/.local/share/icons/Neo11-Silber ~/.local/share/icons/Neo11-Zeiger
+rm -rf ~/.local/share/icons/Neo11-Silber ~/.local/share/icons/Neo11-Zeiger ~/.icons/Neo11-Zeiger
 ```

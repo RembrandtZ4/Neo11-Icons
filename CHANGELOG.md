@@ -1,5 +1,9 @@
 # Änderungen
 
+## 1.3.1 – 26.11.2026
+
+- Mauszeiger: zusätzliche Verknüpfung in `~/.icons`, damit „Neo11 Zeiger“ in den Systemeinstellungen erscheint (KDE sucht Mauszeiger nicht in `~/.local/share/icons`)
+
 ## 1.3.0 – 26.11.2026
 
 - Neu: Mauszeiger-Theme „Neo11 Zeiger“ – 22 eigene Zeiger im geometrischen Stil mit weichem Schatten, über 100 Aliasnamen für alle Programme, animiertes Warten und „Arbeitet im Hintergrund“, Größen 24–96 px

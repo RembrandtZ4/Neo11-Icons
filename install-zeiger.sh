@@ -13,5 +13,10 @@ rm -rf "$ZIEL"
 mkdir -p "$HOME/.local/share/icons"
 cp -a zeiger/Neo11-Zeiger "$ZIEL"
 
+# Die Mauszeiger-Einstellungen von KDE suchen nur in ~/.icons und /usr/share/icons –
+# deshalb zusätzlich eine Verknüpfung in ~/.icons anlegen
+mkdir -p "$HOME/.icons"
+ln -sfn "$ZIEL" "$HOME/.icons/Neo11-Zeiger"
+
 echo "Fertig! „Neo11 Zeiger“ ist installiert."
 echo "Aktivieren: Systemeinstellungen ▸ Farben & Design ▸ Mauszeiger ▸ „Neo11 Zeiger“"
