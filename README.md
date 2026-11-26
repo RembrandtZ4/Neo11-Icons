@@ -24,10 +24,10 @@ Danach: **Systemeinstellungen ▸ Farben & Design ▸ Symbole ▸ „Neo11 Silbe
 ## Symbolgröße ändern
 
 ```bash
-./install.sh 80     # Motive füllen 80 % der Fläche (Standard: 90)
+./install.sh 75     # Motive füllen 75 % der Fläche (Standard: 90)
 ```
 
-Die endgültige Größe in der Taskleiste stellst du außerdem über die Leistenhöhe ein.
+Die gewählte Größe wird gemerkt – ein späteres `./install.sh` ohne Zahl behält sie bei. Die endgültige Größe in der Taskleiste hängt außerdem von der Leistenhöhe ab.
 
 ## Neue Symbole hinzufügen
 

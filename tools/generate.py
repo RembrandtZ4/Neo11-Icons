@@ -4,7 +4,7 @@ import math, os, sys, shutil, pathlib
 
 PERCENT = float(sys.argv[1]) if len(sys.argv) > 1 else 90.0
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-OUT = ROOT / "Neo11-Silber"
+OUT = pathlib.Path(os.environ["NEO11_OUT"]) if os.environ.get("NEO11_OUT") else ROOT / "Neo11-Silber"
 G, D, M, W = "url(#g)", "#1c1c1c", "#8f8f8f", "#ffffff"
 
 def svg(body):

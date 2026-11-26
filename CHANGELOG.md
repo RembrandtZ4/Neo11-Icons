@@ -1,5 +1,10 @@
 # Änderungen
 
+## 1.1.2 – 26.11.2026
+
+- `./install.sh <Prozent>` merkt sich die gewählte Symbolgröße für spätere Updates
+- Eine eigene Größe verändert die Dateien im Repository nicht mehr – `git pull` bleibt ohne Konflikte
+
 ## 1.1.1 – 26.11.2026
 
 - Neue Symbole „Programm ausführen“ und „Hilfe“ – damit zeigt auch die Vorschau in den Systemeinstellungen nur noch Neo11-Silber-Symbole
