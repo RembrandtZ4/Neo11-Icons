@@ -96,6 +96,90 @@ GLYPHS = {
  "tiles": ''.join(f'<rect x="{3+i*9.35:.2f}" y="{3+j*9.35:.2f}" width="7.3" height="7.3" rx="2" fill="#e8e8e8"/>' for i in range(3) for j in range(3)),
 }
 
+
+# ── Etappe 2: Ordner, Laufwerke, Dateitypen ────────────────────────────────
+FOLDER_BASE = GLYPHS["folder"]
+def em(body, x=16, y=19.6, sc=1.0):
+    return f'<g transform="translate({x} {y}) scale({sc})">{body}</g>'
+E = {
+ "lines": ''.join(f'<rect x="-4.5" y="{y}" width="{w}" height="1.5" rx=".75" fill="{D}"/>' for y, w in ((-3.2, 9), (-0.75, 9), (1.7, 6))),
+ "picture": f'<polygon points="-5,3.5 -1.5,-1.5 1,1.6 2.5,0 5,3.5" fill="{D}" stroke="{D}" stroke-linejoin="round"/><circle cx="2.8" cy="-3" r="1.5" fill="{D}"/>',
+ "note": st("M-1.5 2.6V-3.8l5-1.2v6", 1.5) + f'<ellipse cx="-3" cy="2.8" rx="1.8" ry="1.4" fill="{D}"/><ellipse cx="2" cy="1.6" rx="1.8" ry="1.4" fill="{D}"/>',
+ "down": st("M0 -4.5v7M-3.5 0l3.5 3.5 3.5-3.5", 2),
+ "play": f'<polygon points="-2.6,-4 4.2,0 -2.6,4" fill="{D}" stroke="{D}" stroke-width="1" stroke-linejoin="round"/>',
+ "monitor": f'<rect x="-5" y="-4.2" width="10" height="6.4" rx="1" fill="{D}"/><rect x="-2.5" y="3.2" width="5" height="1.4" rx=".7" fill="{D}"/>',
+ "house": f'<path d="M0 -4.8L5.2 -0.6V4.4H1.6V1.2h-3.2v3.2H-5.2V-0.6z" fill="{D}" stroke="{D}" stroke-width=".6" stroke-linejoin="round"/>',
+ "cloud": f'<path d="M-2.6 3.6a2.9 2.9 0 0 1-.4-5.8 3.8 3.8 0 0 1 7.1-.5 3.1 3.1 0 0 1-.2 6.3z" fill="{D}"/>',
+ "net": st("M0 0L-3.6 -3.2M0 0l3.6-3.2M0 0v3.8", 1.3) + ''.join(f'<circle cx="{x}" cy="{y}" r="1.6" fill="{D}"/>' for x, y in ((-3.6, -3.2), (3.6, -3.2), (0, 3.8), (0, 0))),
+ "question": st("M-1.9 -1.8a2 2 0 1 1 2.9 1.8c-.7.3-1.1.8-1.1 1.5v.3", 1.6) + f'<circle cx="-.1" cy="3.6" r=".95" fill="{D}"/>',
+ "prompt": st("M-4.5 -2.5l3 2.5-3 2.5", 1.6) + f'<rect x="0" y="1.6" width="4.5" height="1.6" rx=".8" fill="{D}"/>',
+ "globe": f'<circle cx="0" cy="0" r="4.6" fill="none" stroke="{D}" stroke-width="1.3"/><ellipse cx="0" cy="0" rx="2" ry="4.6" fill="none" stroke="{D}" stroke-width="1.1"/>' + st("M-4.6 0h9.2", 1.1),
+ "disc": f'<circle cx="0" cy="0" r="4.8" fill="{D}"/><circle cx="0" cy="0" r="1.4" fill="{G}"/>',
+ "grid": f'<rect x="-5" y="-4" width="10" height="8" rx="1" fill="none" stroke="{D}" stroke-width="1.3"/>' + st("M-5 0h10M-1.6 -4v8", 1.1),
+ "chart": ''.join(f'<rect x="{x}" y="{3.6-h}" width="2.4" height="{h}" rx=".6" fill="{D}"/>' for x, h in ((-4.4, 3.5), (-1.2, 6.5), (2, 5))),
+ "zip": ''.join(f'<rect x="{-1.6 if i%2 else 0}" y="{-5+i*1.6:.1f}" width="1.6" height="1.6" fill="{D}"/>' for i in range(6)) + f'<rect x="-1.9" y="4.6" width="3.8" height="2.6" rx=".6" fill="{D}"/>',
+ "gearsm": "",
+ "pdfband": f'<rect x="-6" y="1.5" width="12" height="4.5" rx="1" fill="{D}"/>' + ''.join(f'<rect x="{x}" y="2.8" width="2.2" height="1.9" rx=".4" fill="{W}"/>' for x in (-4.3, -1.1, 2.1)) + ''.join(f'<rect x="-4.5" y="{y}" width="9" height="1.4" rx=".7" fill="{D}"/>' for y in (-4.5, -2)),
+}
+def _gear_small():
+    pts = []
+    for i in range(32):
+        a = 2 * math.pi * i / 32
+        r = 4.8 if (i % 4) in (1, 2) else 3.6
+        pts.append(f"{r * math.cos(a):.2f},{r * math.sin(a):.2f}")
+    return f'<polygon points="{" ".join(pts)}" fill="{D}"/><circle cx="0" cy="0" r="1.5" fill="{G}"/>'
+E["gearsm"] = _gear_small()
+
+def folder(emblem):
+    return FOLDER_BASE + (em(E[emblem], 16, 19.6, 0.95) if emblem else "")
+def page(emblem):
+    return PAGE + em(E[emblem], 16, 18.5, 1.05)
+
+GLYPHS.update({
+ "f-docs": folder("lines"), "f-pics": folder("picture"), "f-music": folder("note"), "f-videos": folder("play"),
+ "f-down": folder("down"), "f-desk": folder("monitor"), "f-home": folder("house"), "f-cloud": folder("cloud"), "f-net": folder("net"),
+ "trash": f'<rect x="5" y="6" width="22" height="3.2" rx="1.4" fill="{G}"/><rect x="12.5" y="3" width="7" height="3.6" rx="1.2" fill="{G}"/><path d="M7 10.6h18l-1.5 16.2a2.3 2.3 0 0 1-2.3 2.1H10.8a2.3 2.3 0 0 1-2.3-2.1z" fill="{G}"/>' + st("M12.5 14.5v10M16 14.5v10M19.5 14.5v10", 1.6),
+ "trash-full": f'<path d="M9 9.5l3-6 6 2.4-1.2 4z" fill="{M}"/><path d="M15.5 9l6-5 3 3.6-2.6 2.6z" fill="{W}"/><rect x="5" y="8" width="22" height="3" rx="1.4" fill="{G}"/><path d="M7 12.2h18l-1.4 14.6a2.3 2.3 0 0 1-2.3 2.1H10.7a2.3 2.3 0 0 1-2.3-2.1z" fill="{G}"/>' + st("M12.5 15.5v9.5M16 15.5v9.5M19.5 15.5v9.5", 1.6),
+ "ssd": f'<rect x="4" y="5" width="24" height="22" rx="3" fill="{G}"/><rect x="8" y="9" width="9" height="9" rx="1.4" fill="{D}"/><rect x="19" y="9" width="5" height="4" rx="1" fill="{D}" opacity=".55"/><rect x="19" y="14" width="5" height="4" rx="1" fill="{D}" opacity=".55"/>' + st("M8 22.5h16", 1.4),
+ "usb": f'<rect x="11" y="3" width="10" height="7" rx="1" fill="{M}"/><rect x="13" y="5" width="2" height="2" fill="{D}"/><rect x="17" y="5" width="2" height="2" fill="{D}"/><rect x="8.5" y="9.5" width="15" height="19.5" rx="3" fill="{G}"/><circle cx="16" cy="23" r="1.4" fill="{D}"/>',
+ "optical": f'<circle cx="16" cy="16" r="12.8" fill="{G}"/><circle cx="16" cy="16" r="9.2" fill="none" stroke="{D}" stroke-width=".8" opacity=".3"/><circle cx="16" cy="16" r="4.6" fill="{D}" opacity=".35"/><circle cx="16" cy="16" r="2.1" fill="{D}"/>',
+ "m-text": page("lines"), "m-image": page("picture"), "m-audio": page("note"), "m-video": page("play"),
+ "m-pdf": page("pdfband"), "m-archive": page("zip"), "m-script": page("prompt"), "m-exec": page("gearsm"),
+ "m-iso": page("disc"), "m-html": page("globe"), "m-sheet": page("grid"), "m-slides": page("chart"), "m-unknown": page("question"),
+})
+
+PLACES_EXTRA = {
+ "folder": "folder", "inode-directory": "folder", "folder-documents": "f-docs", "folder-pictures": "f-pics", "folder-images": "f-pics",
+ "folder-music": "f-music", "folder-sound": "f-music", "folder-videos": "f-videos", "folder-video": "f-videos",
+ "folder-download": "f-down", "folder-downloads": "f-down", "folder-desktop": "f-desk", "user-desktop": "f-desk",
+ "user-home": "f-home", "folder-home": "f-home", "folder-cloud": "f-cloud", "folder-network": "f-net", "folder-remote": "f-net", "network-workgroup": "f-net",
+ "user-trash": "trash", "trash-empty": "trash", "user-trash-full": "trash-full", "trash-full": "trash-full",
+}
+DEVICES = {
+ "drive-harddisk": "drive", "drive-harddisk-solidstate": "ssd", "drive-removable-media": "usb", "drive-removable-media-usb": "usb",
+ "drive-removable-media-usb-pendrive": "usb", "media-flash": "usb", "drive-optical": "optical", "media-optical": "optical",
+}
+MIMETYPES = {
+ "text-plain": "m-text", "text-x-generic": "m-text", "application-x-zerosize": "m-text",
+ "image-x-generic": "m-image", "image-png": "m-image", "image-jpeg": "m-image", "image-svg+xml": "m-image", "image-gif": "m-image", "image-webp": "m-image",
+ "audio-x-generic": "m-audio", "audio-mpeg": "m-audio", "audio-flac": "m-audio", "audio-x-flac": "m-audio", "audio-ogg": "m-audio", "audio-x-wav": "m-audio",
+ "video-x-generic": "m-video", "video-mp4": "m-video", "video-x-matroska": "m-video", "video-webm": "m-video",
+ "application-pdf": "m-pdf",
+ "application-x-archive": "m-archive", "application-zip": "m-archive", "application-x-7z-compressed": "m-archive", "application-x-rar": "m-archive",
+ "application-x-compressed-tar": "m-archive", "application-x-tar": "m-archive", "application-gzip": "m-archive", "package-x-generic": "m-archive",
+ "text-x-script": "m-script", "application-x-shellscript": "m-script", "text-x-python": "m-script",
+ "application-x-executable": "m-exec", "application-x-sharedlib": "m-exec",
+ "application-x-cd-image": "m-iso", "application-x-iso9660-image": "m-iso",
+ "text-html": "m-html", "application-xhtml+xml": "m-html",
+ "x-office-document": "m-text", "application-vnd.oasis.opendocument.text": "m-text", "application-msword": "m-text",
+ "application-vnd.openxmlformats-officedocument.wordprocessingml.document": "m-text",
+ "x-office-spreadsheet": "m-sheet", "application-vnd.oasis.opendocument.spreadsheet": "m-sheet", "text-csv": "m-sheet",
+ "application-vnd.openxmlformats-officedocument.spreadsheetml.sheet": "m-sheet",
+ "x-office-presentation": "m-slides", "application-vnd.oasis.opendocument.presentation": "m-slides",
+ "application-vnd.openxmlformats-officedocument.presentationml.presentation": "m-slides",
+ "unknown": "m-unknown", "application-octet-stream": "m-unknown",
+}
+
 APPS = {
  "Alacritty": "terminal", "utilities-terminal": "terminal", "org.kde.konsole": "terminal",
  "micro": "terminal-cursor", "gvim": "code", "vim": "code",
@@ -119,12 +203,12 @@ APPS = {
  "org.pulseaudio.pavucontrol": "sliders-h", "qasmixer": "sliders-v", "qashctl": "knobs", "qasconfig": "speaker",
  "qdbusviewer": "nodes", "steam": "gamepad", "hoptodesk": "remote",
 }
-PLACES = {"start-here": "tiles", "start-here-kde": "tiles", "start-here-kde-symbolic": "tiles", "start-here-kde-plasma": "tiles"}
+PLACES = {**PLACES_EXTRA, "start-here": "tiles", "start-here-kde": "tiles", "start-here-kde-symbolic": "tiles", "start-here-kde-plasma": "tiles"}
 
 def main():
     if OUT.exists():
         shutil.rmtree(OUT)
-    for sub, table in (("apps", APPS), ("places", PLACES)):
+    for sub, table in (("apps", APPS), ("places", PLACES), ("devices", DEVICES), ("mimetypes", MIMETYPES)):
         d = OUT / "scalable" / sub
         d.mkdir(parents=True)
         for name, glyph in table.items():
@@ -135,7 +219,7 @@ Comment=Weiß-silberne Programmsymbole passend zu Neo11Menu (Symbolgröße {PERC
 Inherits=breeze-dark,breeze,hicolor
 Example=folder
 DisplayDepth=32
-Directories=scalable/apps,scalable/places
+Directories=scalable/apps,scalable/places,scalable/devices,scalable/mimetypes
 
 [scalable/apps]
 Size=48
@@ -150,8 +234,22 @@ MinSize=8
 MaxSize=512
 Type=Scalable
 Context=Places
+
+[scalable/devices]
+Size=48
+MinSize=8
+MaxSize=512
+Type=Scalable
+Context=Devices
+
+[scalable/mimetypes]
+Size=48
+MinSize=8
+MaxSize=512
+Type=Scalable
+Context=MimeTypes
 """)
-    print(f"{len(APPS) + len(PLACES)} Symbole aus {len(GLYPHS)} Motiven erzeugt ({PERCENT:.0f} %).")
+    print(f"{len(APPS) + len(PLACES) + len(DEVICES) + len(MIMETYPES)} Symbole aus {len(GLYPHS)} Motiven erzeugt ({PERCENT:.0f} %).")
 
 if __name__ == "__main__":
     main()

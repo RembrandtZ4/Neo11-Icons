@@ -4,7 +4,7 @@ Comment=Weiß-silberne Programmsymbole passend zu Neo11Menu (Symbolgröße 90 %)
 Inherits=breeze-dark,breeze,hicolor
 Example=folder
 DisplayDepth=32
-Directories=scalable/apps,scalable/places
+Directories=scalable/apps,scalable/places,scalable/devices,scalable/mimetypes
 
 [scalable/apps]
 Size=48
@@ -19,3 +19,17 @@ MinSize=8
 MaxSize=512
 Type=Scalable
 Context=Places
+
+[scalable/devices]
+Size=48
+MinSize=8
+MaxSize=512
+Type=Scalable
+Context=Devices
+
+[scalable/mimetypes]
+Size=48
+MinSize=8
+MaxSize=512
+Type=Scalable
+Context=MimeTypes
