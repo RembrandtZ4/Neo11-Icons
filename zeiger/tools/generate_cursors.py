@@ -20,7 +20,7 @@ def P(d, fill=FILL, rule=""):
     r = f' fill-rule="{rule}"' if rule else ""
     return f'<path d="{d}" fill="{fill}"{r} stroke="#3a3a3a" stroke-width=".35" stroke-linejoin="round"/>'
 
-DART = "M5 3.5L25.5 15.2 15.6 16.9 9.9 27z"
+DART = "M6 3.5L6.4 25.6 12.3 20 21.4 19.6z"
 def dart_small():
     return P(DART)
 
@@ -53,13 +53,13 @@ def magnifier(minus=False):
 # name: (svg-body or list of frames, hotspot x, y in 32er-Raster, delay ms)
 def cursors():
     c = {}
-    c["default"] = (P(DART), 5, 3.5)
-    c["help"] = (P(DART) + badge('<path d="M3.4 3.9a1.7 1.7 0 1 1 2.4 1.5c-.6.3-.9.7-.9 1.3v.2" fill="none" stroke="#3a3a3a" stroke-width="1.1" stroke-linecap="round"/><circle cx="4.9" cy="8.3" r=".6" fill="#3a3a3a"/>'), 5, 3.5)
-    c["copy"] = (P(DART) + badge('<path d="M5 2.4v5.2M2.4 5h5.2" stroke="#3a3a3a" stroke-width="1.3" stroke-linecap="round"/>'), 5, 3.5)
-    c["alias"] = (P(DART) + badge('<path d="M3 7.4C3 4.6 4.6 3.4 7 3.4M5.6 1.9L7.2 3.4 5.6 4.9" fill="none" stroke="#3a3a3a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>'), 5, 3.5)
-    c["context-menu"] = (P(DART) + '<g transform="translate(18 17)"><rect x="0" y="0" width="10" height="11" rx="1.4" fill="url(#f)" stroke="#3a3a3a" stroke-width=".35"/><path d="M2.2 3h5.6M2.2 5.5h5.6M2.2 8h5.6" stroke="#3a3a3a" stroke-width=".9" stroke-linecap="round"/></g>', 5, 3.5)
+    c["default"] = (P(DART), 6, 3.5)
+    c["help"] = (P(DART) + badge('<path d="M3.4 3.9a1.7 1.7 0 1 1 2.4 1.5c-.6.3-.9.7-.9 1.3v.2" fill="none" stroke="#3a3a3a" stroke-width="1.1" stroke-linecap="round"/><circle cx="4.9" cy="8.3" r=".6" fill="#3a3a3a"/>'), 6, 3.5)
+    c["copy"] = (P(DART) + badge('<path d="M5 2.4v5.2M2.4 5h5.2" stroke="#3a3a3a" stroke-width="1.3" stroke-linecap="round"/>'), 6, 3.5)
+    c["alias"] = (P(DART) + badge('<path d="M3 7.4C3 4.6 4.6 3.4 7 3.4M5.6 1.9L7.2 3.4 5.6 4.9" fill="none" stroke="#3a3a3a" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>'), 6, 3.5)
+    c["context-menu"] = (P(DART) + '<g transform="translate(18 17)"><rect x="0" y="0" width="10" height="11" rx="1.4" fill="url(#f)" stroke="#3a3a3a" stroke-width=".35"/><path d="M2.2 3h5.6M2.2 5.5h5.6M2.2 8h5.6" stroke="#3a3a3a" stroke-width=".9" stroke-linecap="round"/></g>', 6, 3.5)
     c["wait"] = ([spinner(a) for a in range(0, 360, 30)], 16, 16, 60)
-    c["progress"] = ([P(DART) + f'<g transform="translate(14.5 14.5) scale(.5)">{spinner(a)}</g>' for a in range(0, 360, 30)], 5, 3.5, 60)
+    c["progress"] = ([P(DART) + f'<g transform="translate(14.5 14.5) scale(.5)">{spinner(a)}</g>' for a in range(0, 360, 30)], 6, 3.5, 60)
     c["pointer"] = (P(HAND), 13, 3.6)
     c["grab"] = (P(HAND), 16, 12)
     c["grabbing"] = (P(FIST), 16, 14)
@@ -71,8 +71,8 @@ def cursors():
     c["move"] = (P("M16 3l13 13-13 13L3 16z") + '<circle cx="16" cy="16" r="2" fill="#3a3a3a"/>', 16, 16)
     c["ns-resize"] = (P("M16 3.5l9.5 9.5h-19zM6.5 19h19L16 28.5z"), 16, 16)
     c["ew-resize"] = (P("M3.5 16l9.5-9.5v19zM19 6.5L28.5 16 19 25.5z"), 16, 16)
-    c["nwse-resize"] = (P("M5 5h19L5 24zM27 8v19H8z"), 16, 16)
-    c["nesw-resize"] = (P("M8 5h19v19zM5 8l19 19H5z"), 16, 16)
+    c["nwse-resize"] = (P("M6 6h11.5L6 17.5zM26 14.5V26H14.5z"), 16, 16)
+    c["nesw-resize"] = (P("M14.5 6H26v11.5zM6 14.5L17.5 26H6z"), 16, 16)
     c["zoom-in"] = (magnifier(False), 13, 11)
     c["zoom-out"] = (magnifier(True), 13, 11)
     return c

@@ -1,5 +1,10 @@
 # Änderungen
 
+## 1.3.2 – 26.11.2026
+
+- Mauszeiger: Pfeil aufrechter (linke Kante fast senkrecht), dazu alle Zeiger mit Pfeil (Hilfe, Kopieren, Verknüpfen, Kontextmenü, Hintergrund-Arbeit)
+- Diagonale Größenänderung (NW-SO, NO-SW) deutlich schlanker
+
 ## 1.3.1 – 26.11.2026
 
 - Mauszeiger: zusätzliche Verknüpfung in `~/.icons`, damit „Neo11 Zeiger“ in den Systemeinstellungen erscheint (KDE sucht Mauszeiger nicht in `~/.local/share/icons`)
