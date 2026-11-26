@@ -1,5 +1,10 @@
 # Änderungen
 
+## 1.4.0 – 26.11.2026
+
+- Neu: Plasma-Stil und Farbschema „Neo11“ auf Basis von Fluent-round-dark – silberner Akzent statt Blau, silberne Listenmarkierung, Infofenster von Breeze (die Fluent-Infofenster waren unter Plasma 6 hell und unlesbar)
+- Installation mit `./install-plasma.sh --aktivieren`
+
 ## 1.3.3 – 26.11.2026
 
 - Mauszeiger: Pfeil-Neigung auf die Mitte zwischen 1.3.1 und 1.3.2 eingestellt

@@ -51,8 +51,19 @@ Passende Mauszeiger im gleichen Stil: weiße, leicht silberne Formen mit weichem
 Danach: **Systemeinstellungen ▸ Farben & Design ▸ Mauszeiger ▸ „Neo11 Zeiger“**.
 Die Zeiger werden mit `python3 zeiger/tools/generate_cursors.py` aus den Motiven im Skript erzeugt (benötigt `rsvg-convert`).
 
+## Plasma-Stil und Farbschema „Neo11“
+
+Dunkler Plasma-Stil auf Basis von Fluent-round-dark mit **silbernem Akzent** statt Blau und lesbaren Infofenstern (Herkunft siehe `plasma/HERKUNFT.md`).
+
+```bash
+./install-plasma.sh --aktivieren
+```
+
+Ohne `--aktivieren` wird nur installiert; dann in den Systemeinstellungen unter **Farben & Design ▸ Plasma-Stil** und **▸ Farben** jeweils „Neo11“ wählen.
+
 ## Entfernen
 
 ```bash
 rm -rf ~/.local/share/icons/Neo11-Silber ~/.local/share/icons/Neo11-Zeiger ~/.icons/Neo11-Zeiger
+rm -rf ~/.local/share/plasma/desktoptheme/Neo11 ~/.local/share/color-schemes/Neo11.colors
 ```
