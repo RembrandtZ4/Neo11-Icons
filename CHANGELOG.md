@@ -1,5 +1,10 @@
 # Änderungen
 
+## 1.1.1 – 26.11.2026
+
+- Neue Symbole „Programm ausführen“ und „Hilfe“ – damit zeigt auch die Vorschau in den Systemeinstellungen nur noch Neo11-Silber-Symbole
+- install.sh leert den Symbol-Zwischenspeicher von KDE, damit neue Symbole sofort erscheinen
+
 ## 1.1.0 – 26.11.2026
 
 - Ordner: Standard, Dokumente, Bilder, Musik, Videos, Downloads, Schreibtisch, Persönlicher Ordner, Cloud, Netzwerk

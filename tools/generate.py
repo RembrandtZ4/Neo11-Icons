@@ -148,6 +148,11 @@ GLYPHS.update({
  "m-iso": page("disc"), "m-html": page("globe"), "m-sheet": page("grid"), "m-slides": page("chart"), "m-unknown": page("question"),
 })
 
+GLYPHS.update({
+ "run": f'<rect x="3" y="5" width="26" height="22" rx="3" fill="{G}"/><rect x="3" y="9" width="26" height="1.4" fill="{D}" opacity=".35"/><circle cx="6.5" cy="7" r=".9" fill="{D}"/><polygon points="13,13.5 21.5,18.5 13,23.5" fill="{D}" stroke="{D}" stroke-width="1.2" stroke-linejoin="round"/>',
+ "help": f'<circle cx="16" cy="16" r="12.8" fill="{G}"/>' + st("M12.4 12.6a3.7 3.7 0 1 1 5.3 3.3c-1.2.6-1.9 1.4-1.9 2.7v.6", 2.6) + f'<circle cx="15.8" cy="23.2" r="1.6" fill="{D}"/>',
+})
+
 PLACES_EXTRA = {
  "folder": "folder", "inode-directory": "folder", "folder-documents": "f-docs", "folder-pictures": "f-pics", "folder-images": "f-pics",
  "folder-music": "f-music", "folder-sound": "f-music", "folder-videos": "f-videos", "folder-video": "f-videos",
@@ -160,7 +165,7 @@ DEVICES = {
  "drive-removable-media-usb-pendrive": "usb", "media-flash": "usb", "drive-optical": "optical", "media-optical": "optical",
 }
 MIMETYPES = {
- "text-plain": "m-text", "text-x-generic": "m-text", "application-x-zerosize": "m-text",
+ "document": "m-text", "text-plain": "m-text", "text-x-generic": "m-text", "application-x-zerosize": "m-text",
  "image-x-generic": "m-image", "image-png": "m-image", "image-jpeg": "m-image", "image-svg+xml": "m-image", "image-gif": "m-image", "image-webp": "m-image",
  "audio-x-generic": "m-audio", "audio-mpeg": "m-audio", "audio-flac": "m-audio", "audio-x-flac": "m-audio", "audio-ogg": "m-audio", "audio-x-wav": "m-audio",
  "video-x-generic": "m-video", "video-mp4": "m-video", "video-x-matroska": "m-video", "video-webm": "m-video",
@@ -203,6 +208,7 @@ APPS = {
  "org.pulseaudio.pavucontrol": "sliders-h", "qasmixer": "sliders-v", "qashctl": "knobs", "qasconfig": "speaker",
  "qdbusviewer": "nodes", "steam": "gamepad", "hoptodesk": "remote",
 }
+APPS.update({"system-run": "run", "help-browser": "help", "help-contents": "help", "help-about": "info", "system-help": "help"})
 PLACES = {**PLACES_EXTRA, "start-here": "tiles", "start-here-kde": "tiles", "start-here-kde-symbolic": "tiles", "start-here-kde-plasma": "tiles"}
 
 def main():
