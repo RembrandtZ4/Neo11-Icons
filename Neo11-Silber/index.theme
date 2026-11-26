@@ -1,0 +1,21 @@
+[Icon Theme]
+Name=Neo11 Silber
+Comment=Weiß-silberne Programmsymbole passend zu Neo11Menu (Symbolgröße 90 %)
+Inherits=breeze-dark,breeze,hicolor
+Example=folder
+DisplayDepth=32
+Directories=scalable/apps,scalable/places
+
+[scalable/apps]
+Size=48
+MinSize=8
+MaxSize=512
+Type=Scalable
+Context=Applications
+
+[scalable/places]
+Size=48
+MinSize=8
+MaxSize=512
+Type=Scalable
+Context=Places
