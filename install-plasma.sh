@@ -40,7 +40,8 @@ with gzip.open(path, "wt", encoding="utf-8") as f:
     f.write(s)
 PY
 echo "Rand um die Taskleisten-Symbole: ${RAND} px"
-rm -f "$HOME"/.cache/plasma_theme_*.kcache "$HOME"/.cache/plasma-svgelements* 2>/dev/null || true
+# Zwischenspeicher der Grafiken leeren (Plasma 6: ksvg-elements, Plasma 5: plasma-svgelements)
+rm -f "$HOME"/.cache/ksvg-elements* "$HOME"/.cache/plasma_theme_*.kcache "$HOME"/.cache/plasma-svgelements* 2>/dev/null || true
 
 for arg in "$@"; do
   case "$arg" in
@@ -68,15 +69,20 @@ done
 # Plasma neu starten, damit die geänderten Grafiken sofort geladen werden.
 # Erst über systemd (Standard bei Plasma 6); klappt das nicht, Plasma direkt ersetzen.
 neustart_plasma() {
-  if systemctl --user --quiet is-active plasma-plasmashell.service 2>/dev/null; then
-    systemctl --user restart plasma-plasmashell.service && sleep 3
-  fi
-  if ! pgrep -x plasmashell >/dev/null; then
-    setsid -f plasmashell --replace >/dev/null 2>&1
-    sleep 3
-  fi
+  local alt neu
+  alt="$(pgrep -x plasmashell | head -1)"
+  systemctl --user reset-failed plasma-plasmashell.service 2>/dev/null || true
+  setsid -f plasmashell --replace >/dev/null 2>&1
+  for _ in 1 2 3 4 5 6 7 8 9 10; do
+    sleep 1
+    neu="$(pgrep -x plasmashell | head -1)"
+    if [ -n "$neu" ] && [ "$neu" != "$alt" ]; then
+      echo "Plasma wurde neu gestartet."
+      return 0
+    fi
+  done
   if pgrep -x plasmashell >/dev/null; then
-    echo "Plasma wurde neu gestartet."
+    echo "Plasma läuft, wurde aber evtl. nicht neu geladen – bitte ab- und wieder anmelden."
   else
     echo "Plasma läuft nicht – bitte Alt+F2 drücken, „plasmashell“ eingeben und Enter."
   fi
