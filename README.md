@@ -67,7 +67,14 @@ Ohne `--aktivieren` wird nur installiert; dann in den Systemeinstellungen unter 
 ./install-plasma.sh --taskleiste-win11
 ```
 
-Stellt die Leiste auf 48 px Höhe – die Knöpfe sind dann 40 × 40 px groß und die Symbole 24 px, genau wie bei Windows 11. Der Plasma-Stil „Neo11“ lässt dafür 8 px Rand um jedes Symbol. Plasma startet danach kurz neu.
+Stellt die Leiste auf 48 px Höhe – die Knöpfe sind dann 40 × 40 px groß. Plasma startet danach kurz neu.
+
+Wie viel Luft um die Symbole bleibt, bestimmt `--symbolrand` (Standard 4 px, wird gemerkt):
+
+```
+./install-plasma.sh --symbolrand 4    # Symbole 32 px
+./install-plasma.sh --symbolrand 8    # Symbole 24 px – exakt wie Windows 11
+```
 
 ## Entfernen
 
