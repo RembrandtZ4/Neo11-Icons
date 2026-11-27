@@ -15,30 +15,7 @@ rm -f "$HOME/.local/share/plasma/desktoptheme/Neo11/metadata.json" "$HOME/.local
 cp plasma/color-schemes/Neo11.colors "$HOME/.local/share/color-schemes/Neo11.colors"
 WAR_AKTIV="$(kreadconfig6 --file plasmarc --group Theme --key name 2>/dev/null)"
 
-# Rand um die Taskleisten-Symbole (Pixel) – wird gemerkt: ./install-plasma.sh --symbolrand 4
-RAND_DATEI="$HOME/.config/neo11-symbolrand"
-RAND="$(cat "$RAND_DATEI" 2>/dev/null || echo 4)"
-prev=""
-for arg in "$@"; do
-  if [ "$prev" = "--symbolrand" ]; then RAND="$arg"; fi
-  case "$arg" in --symbolrand=*) RAND="${arg#*=}";; esac
-  prev="$arg"
-done
-if ! [[ "$RAND" =~ ^[0-9]+$ ]] || [ "$RAND" -gt 16 ]; then
-  echo "Symbolrand muss eine Zahl von 0 bis 16 sein."; exit 1
-fi
-echo "$RAND" > "$RAND_DATEI"
-python3 - "$HOME/.local/share/plasma/desktoptheme/Neo11/widgets/tasks.svgz" "$RAND" <<'PY'
-import gzip, re, sys
-path, rand = sys.argv[1], sys.argv[2]
-s = gzip.open(path, "rt", encoding="utf-8").read()
-s = re.sub(r'\s*<rect id="[a-z]+-hint-(?:top|bottom|left|right)-margin" x="-200" y="-200"[^>]*/>', '', s)
-s = re.sub(r'(<rect\s+id="thick-hint-(?:top|bottom|left|right)-margin"[^>]*?)width="[\d.]+"\s+height="[\d.]+"',
-           r'\g<1>width="%s"\n     height="%s"' % (rand, rand), s, flags=re.S)
-with gzip.open(path, "wt", encoding="utf-8") as f:
-    f.write(s)
-PY
-echo "Rand um die Taskleisten-Symbole: ${RAND} px"
+rm -f "$HOME/.config/neo11-symbolrand"   # früherer Versuch (--symbolrand), wirkt in Plasma 6 nicht
 # Zwischenspeicher der Grafiken leeren (Plasma 6: ksvg-elements, Plasma 5: plasma-svgelements)
 rm -f "$HOME"/.cache/ksvg-elements* "$HOME"/.cache/plasma_theme_*.kcache "$HOME"/.cache/plasma-svgelements* 2>/dev/null || true
 
@@ -100,4 +77,4 @@ echo "Fertig! „Neo11“ ist installiert."
 echo "Aktivieren: Systemeinstellungen ▸ Farben & Design ▸ Plasma-Stil ▸ „Neo11“"
 echo "            und ▸ Farben ▸ „Neo11“ – oder einfach: ./install-plasma.sh --aktivieren"
 echo "Taskleiste wie Windows 11 (48 px hoch): ./install-plasma.sh --taskleiste-win11"
-echo "Symbole in der Taskleiste größer/kleiner: ./install-plasma.sh --symbolrand 4   (mehr Rand = kleinere Symbole)"
+echo "Symbole in der Taskleiste kleiner: im Ordner Neo11-Icons ./install.sh 75   (Größe in Prozent)"

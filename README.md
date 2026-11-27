@@ -69,12 +69,7 @@ Ohne `--aktivieren` wird nur installiert; dann in den Systemeinstellungen unter 
 
 Stellt die Leiste auf 48 px Höhe – die Knöpfe sind dann 40 × 40 px groß. Plasma startet danach kurz neu.
 
-Wie viel Luft um die Symbole bleibt, bestimmt `--symbolrand` (Standard 4 px, wird gemerkt):
-
-```
-./install-plasma.sh --symbolrand 4    # Symbole 32 px
-./install-plasma.sh --symbolrand 8    # Symbole 24 px – exakt wie Windows 11
-```
+Kleinere Symbole in der Taskleiste: `./install.sh 75` (siehe „Symbolgröße ändern“) – Plasma 6 erlaubt keine eigene Symbolgröße nur für die Taskleiste.
 
 ## Entfernen
 
