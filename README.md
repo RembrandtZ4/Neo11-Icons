@@ -71,6 +71,8 @@ Titelleiste mit runden Knöpfen auf Basis von Fluent-round-dark – der Schließ
 
 Oder: **Systemeinstellungen ▸ Farben & Design ▸ Fensterdekorationen ▸ „Neo11“**.
 
+![Fensterdekoration Neo11 – vorne aktiv, Maus über dem Schließen-Knopf; hinten ein inaktives Fenster](docs/fensterdekoration.png)
+
 ![Fensterknöpfe: normal, Drüberfahren, gedrückt](docs/fensterknoepfe.png)
 
 ## Taskleiste wie Windows 11
