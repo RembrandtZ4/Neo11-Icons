@@ -21,6 +21,9 @@ DEKO_AKTIV="$(kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key them
 fenster_neo11() {
   kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key library org.kde.kwin.aurorae
   kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme __aurorae__svg__Neo11
+  # Knöpfe wie Windows 11: links nur das App-Symbol (Fenstermenü), rechts Minimieren, Maximieren, Schließen
+  kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key ButtonsOnLeft M
+  kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key ButtonsOnRight IAX
   busctl --user call org.kde.KWin /KWin org.kde.KWin reconfigure >/dev/null 2>&1 || true
   echo "Fensterdekoration: Neo11 (Schließen-Knopf silbern)."
 }
