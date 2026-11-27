@@ -1,4 +1,98 @@
-# Neo11 Silber
+# Neo11 Silver
+
+A white and silver icon theme for KDE Plasma 6, matching the start menu [Neo11Menu](https://github.com/RembrandtZ4/Neo11Menu) – plus cursors, a Plasma style, a color scheme and a window decoration for the complete Neo11 look.
+
+- Own icons in a consistent silver style for installed apps, folders, drives and the most common file types
+- The glyphs fill about 90 % of the area and leave some room – so they look as delicate in the taskbar as on Windows 11
+- All other icons (buttons, system sections, rare file types …) come from Breeze Dark automatically – the install script makes sure KDE doesn't replace them with silver icons by mistake
+- Branded apps (browser, Steam, mail …) deliberately get their own neutral icons instead of their logos
+
+![Overview](docs/uebersicht.png)
+
+![Taskbar](docs/taskleiste.png)
+
+## Install
+
+```bash
+git clone https://github.com/RembrandtZ4/Neo11-Icons.git
+cd Neo11-Icons
+./install.sh
+```
+
+Then: **System Settings ▸ Colors & Themes ▸ Icons ▸ “Neo11 Silber”**.
+
+## Change the icon size
+
+```bash
+./install.sh 75     # glyphs fill 75 % of the area (default: 90)
+```
+
+The chosen size is remembered – a later `./install.sh` without a number keeps it.
+
+## Add new icons
+
+All glyphs and mappings are in `tools/generate.py` (`GLYPHS` plus `APPS`, `PLACES_EXTRA`, `DEVICES`, `MIMETYPES`). After a change:
+
+```bash
+python3 tools/generate.py
+./install.sh
+```
+
+## Cursors “Neo11 Zeiger”
+
+Matching cursors in the same style: white, slightly silver shapes with a soft shadow, 22 cursors (incl. an animated busy circle) in sizes from 24 to 96 px.
+
+![Cursors](docs/zeiger.png)
+
+```bash
+./install-zeiger.sh
+```
+
+Then: **System Settings ▸ Colors & Themes ▸ Cursors ▸ “Neo11 Zeiger”**. The cursors are generated with `python3 zeiger/tools/generate_cursors.py` (needs `rsvg-convert`).
+
+## Plasma style and color scheme “Neo11”
+
+Dark Plasma style based on Fluent-round-dark with a **silver accent** instead of blue and readable tooltips (origin: `plasma/HERKUNFT.md`).
+
+```bash
+./install-plasma.sh --aktivieren
+```
+
+Without `--aktivieren` it is only installed; then pick “Neo11” under **Colors & Themes ▸ Plasma Style** and **▸ Colors**.
+
+## Window decoration “Neo11”
+
+Opaque title bar with round buttons based on Fluent-round-dark – the close button lights up **silver** instead of red on hover, matching the Neo11 accent. Buttons like Windows 11: app icon on the left, minimize, maximize and close on the right. Enabled together with `--aktivieren`, or on its own with:
+
+```bash
+./install-plasma.sh --fenster
+```
+
+Or: **System Settings ▸ Colors & Themes ▸ Window Decorations ▸ “Neo11”**.
+
+![Window decoration Neo11 – active window in front, mouse over the close button; inactive window behind](docs/fensterdekoration.png)
+
+![Window buttons: normal, hover, pressed](docs/fensterknoepfe.png)
+
+## Taskbar like Windows 11
+
+```
+./install-plasma.sh --taskleiste-win11
+```
+
+Sets the panel to 48 px – the buttons are then 40 × 40 px. Plasma restarts briefly. For freely adjustable icon size and spacing, use the [Neo11 Taskbar](https://github.com/RembrandtZ4/Neo11-Taskbar).
+
+## Remove
+
+```bash
+rm -rf ~/.local/share/icons/Neo11-Silber ~/.local/share/icons/Neo11-Zeiger ~/.icons/Neo11-Zeiger
+rm -rf ~/.local/share/plasma/desktoptheme/Neo11 ~/.local/share/color-schemes/Neo11.colors
+rm -rf ~/.local/share/aurorae/themes/Neo11
+```
+
+---
+
+# Neo11 Silber (Deutsch)
 
 Weiß-silbernes Icon-Theme für KDE Plasma 6, passend zum Startmenü [Neo11Menu](https://github.com/RembrandtZ4/Neo11Menu).
 
@@ -77,6 +171,8 @@ Oder: **Systemeinstellungen ▸ Farben & Design ▸ Fensterdekorationen ▸ „N
 
 ## Taskleiste wie Windows 11
 
+Tipp: Mit der [Neo11 Taskleiste](https://github.com/RembrandtZ4/Neo11-Taskbar) lassen sich Symbolgröße, Knopfgröße und Abstände frei einstellen – unabhängig von der Leistenhöhe.
+
 ```
 ./install-plasma.sh --taskleiste-win11
 ```
@@ -90,4 +186,5 @@ Kleinere Symbole in der Taskleiste: `./install.sh 75` (siehe „Symbolgröße ä
 ```bash
 rm -rf ~/.local/share/icons/Neo11-Silber ~/.local/share/icons/Neo11-Zeiger ~/.icons/Neo11-Zeiger
 rm -rf ~/.local/share/plasma/desktoptheme/Neo11 ~/.local/share/color-schemes/Neo11.colors
+rm -rf ~/.local/share/aurorae/themes/Neo11
 ```
