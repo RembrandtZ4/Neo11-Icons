@@ -61,6 +61,18 @@ Dunkler Plasma-Stil auf Basis von Fluent-round-dark mit **silbernem Akzent** sta
 
 Ohne `--aktivieren` wird nur installiert; dann in den Systemeinstellungen unter **Farben & Design ▸ Plasma-Stil** und **▸ Farben** jeweils „Neo11“ wählen.
 
+## Fensterdekoration „Neo11“
+
+Titelleiste mit runden Knöpfen auf Basis von Fluent-round-dark – der Schließen-Knopf leuchtet beim Drüberfahren **silbern** statt rot, passend zum Neo11-Akzent. Wird bei `--aktivieren` mit eingeschaltet, einzeln mit:
+
+```bash
+./install-plasma.sh --fenster
+```
+
+Oder: **Systemeinstellungen ▸ Farben & Design ▸ Fensterdekorationen ▸ „Neo11“**.
+
+![Fensterknöpfe: normal, Drüberfahren, gedrückt](docs/fensterknoepfe.png)
+
 ## Taskleiste wie Windows 11
 
 ```
