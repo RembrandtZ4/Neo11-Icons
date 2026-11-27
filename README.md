@@ -61,6 +61,14 @@ Dunkler Plasma-Stil auf Basis von Fluent-round-dark mit **silbernem Akzent** sta
 
 Ohne `--aktivieren` wird nur installiert; dann in den Systemeinstellungen unter **Farben & Design ▸ Plasma-Stil** und **▸ Farben** jeweils „Neo11“ wählen.
 
+## Taskleiste wie Windows 11
+
+```
+./install-plasma.sh --taskleiste-win11
+```
+
+Stellt die Leiste auf 48 px Höhe – die Knöpfe sind dann 40 × 40 px groß und die Symbole 24 px, genau wie bei Windows 11. Der Plasma-Stil „Neo11“ lässt dafür 8 px Rand um jedes Symbol. Plasma startet danach kurz neu.
+
 ## Entfernen
 
 ```bash
