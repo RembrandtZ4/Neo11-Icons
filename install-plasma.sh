@@ -32,8 +32,7 @@ python3 - "$HOME/.local/share/plasma/desktoptheme/Neo11/widgets/tasks.svgz" "$RA
 import gzip, re, sys
 path, rand = sys.argv[1], sys.argv[2]
 s = gzip.open(path, "rt", encoding="utf-8").read()
-s = re.sub(r'(<rect id="[a-z]+-hint-(?:top|bottom|left|right)-margin" x="-200" y="-200" )width="[\d.]+" height="[\d.]+"',
-           r'\g<1>width="%s" height="%s"' % (rand, rand), s)
+s = re.sub(r'\s*<rect id="[a-z]+-hint-(?:top|bottom|left|right)-margin" x="-200" y="-200"[^>]*/>', '', s)
 s = re.sub(r'(<rect\s+id="thick-hint-(?:top|bottom|left|right)-margin"[^>]*?)width="[\d.]+"\s+height="[\d.]+"',
            r'\g<1>width="%s"\n     height="%s"' % (rand, rand), s, flags=re.S)
 with gzip.open(path, "wt", encoding="utf-8") as f:
