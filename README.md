@@ -63,7 +63,7 @@ Ohne `--aktivieren` wird nur installiert; dann in den Systemeinstellungen unter 
 
 ## Fensterdekoration „Neo11“
 
-Titelleiste mit runden Knöpfen auf Basis von Fluent-round-dark – der Schließen-Knopf leuchtet beim Drüberfahren **silbern** statt rot, passend zum Neo11-Akzent. Wird bei `--aktivieren` mit eingeschaltet, einzeln mit:
+Undurchsichtige Titelleiste mit runden Knöpfen auf Basis von Fluent-round-dark – der Schließen-Knopf leuchtet beim Drüberfahren **silbern** statt rot, passend zum Neo11-Akzent. Wird bei `--aktivieren` mit eingeschaltet, einzeln mit:
 
 ```bash
 ./install-plasma.sh --fenster
