@@ -60,10 +60,24 @@ for arg in "$@"; do
   esac
 done
 
-# Plasma neu starten, damit die geänderten Grafiken sofort geladen werden
+# Plasma neu starten, damit die geänderten Grafiken sofort geladen werden.
+# Erst über systemd (Standard bei Plasma 6); klappt das nicht, Plasma direkt ersetzen.
+neustart_plasma() {
+  if systemctl --user --quiet is-active plasma-plasmashell.service 2>/dev/null; then
+    systemctl --user restart plasma-plasmashell.service && sleep 3
+  fi
+  if ! pgrep -x plasmashell >/dev/null; then
+    setsid -f plasmashell --replace >/dev/null 2>&1
+    sleep 3
+  fi
+  if pgrep -x plasmashell >/dev/null; then
+    echo "Plasma wurde neu gestartet."
+  else
+    echo "Plasma läuft nicht – bitte Alt+F2 drücken, „plasmashell“ eingeben und Enter."
+  fi
+}
 if pgrep -x plasmashell >/dev/null; then
-  systemctl --user restart plasma-plasmashell.service 2>/dev/null \
-    || { kquitapp6 plasmashell 2>/dev/null; sleep 1; (kstart plasmashell >/dev/null 2>&1 &); }
+  neustart_plasma
 fi
 
 echo "Fertig! „Neo11“ ist installiert."
