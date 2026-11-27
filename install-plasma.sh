@@ -7,9 +7,12 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 mkdir -p "$HOME/.local/share/plasma/desktoptheme" "$HOME/.local/share/color-schemes"
-rm -rf "$HOME/.local/share/plasma/desktoptheme/Neo11"
-cp -r plasma/desktoptheme/Neo11 "$HOME/.local/share/plasma/desktoptheme/Neo11"
+# Ordner nicht erst löschen (sonst fällt ein laufendes Plasma kurz auf Breeze zurück), sondern überschreiben
+mkdir -p "$HOME/.local/share/plasma/desktoptheme/Neo11"
+cp -rT plasma/desktoptheme/Neo11 "$HOME/.local/share/plasma/desktoptheme/Neo11"
 cp plasma/color-schemes/Neo11.colors "$HOME/.local/share/color-schemes/Neo11.colors"
+WAR_AKTIV="$(kreadconfig6 --file plasmarc --group Theme --key name 2>/dev/null)"
+
 # Rand um die Taskleisten-Symbole (Pixel) – wird gemerkt: ./install-plasma.sh --symbolrand 4
 RAND_DATEI="$HOME/.config/neo11-symbolrand"
 RAND="$(cat "$RAND_DATEI" 2>/dev/null || echo 4)"
@@ -78,6 +81,9 @@ neustart_plasma() {
 }
 if pgrep -x plasmashell >/dev/null; then
   neustart_plasma
+  if [ "$WAR_AKTIV" = "Neo11" ]; then
+    plasma-apply-desktoptheme Neo11 >/dev/null 2>&1 || true
+  fi
 fi
 
 echo "Fertig! „Neo11“ ist installiert."
