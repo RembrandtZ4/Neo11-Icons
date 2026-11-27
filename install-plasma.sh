@@ -10,6 +10,7 @@ mkdir -p "$HOME/.local/share/plasma/desktoptheme" "$HOME/.local/share/color-sche
 # Ordner nicht erst löschen (sonst fällt ein laufendes Plasma kurz auf Breeze zurück), sondern überschreiben
 mkdir -p "$HOME/.local/share/plasma/desktoptheme/Neo11"
 cp -rT plasma/desktoptheme/Neo11 "$HOME/.local/share/plasma/desktoptheme/Neo11"
+rm -f "$HOME/.local/share/plasma/desktoptheme/Neo11/metadata.desktop"   # altes Format (bis 1.0), jetzt metadata.json
 cp plasma/color-schemes/Neo11.colors "$HOME/.local/share/color-schemes/Neo11.colors"
 WAR_AKTIV="$(kreadconfig6 --file plasmarc --group Theme --key name 2>/dev/null)"
 
@@ -81,6 +82,9 @@ neustart_plasma() {
 }
 if pgrep -x plasmashell >/dev/null; then
   neustart_plasma
+  if pgrep -x systemsettings >/dev/null; then
+    echo "Hinweis: Die Systemeinstellungen sind geöffnet – bitte schließen, sonst stellen sie den alten Stil wieder ein."
+  fi
   if [ "$WAR_AKTIV" = "Neo11" ]; then
     plasma-apply-desktoptheme Neo11 >/dev/null 2>&1 || true
   fi
