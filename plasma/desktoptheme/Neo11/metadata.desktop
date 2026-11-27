@@ -1,0 +1,22 @@
+[Desktop Entry]
+Name=Neo11
+Comment=Neo11 – dunkel, silberner Akzent (auf Basis von Fluent-round-dark von Vince Liuice)
+
+X-KDE-PluginInfo-Author=RembrandtZ4, Vince Liuice (Fluent)
+X-KDE-PluginInfo-Email=vinceliuice@hotmail.com
+X-KDE-PluginInfo-Name=Neo11
+X-KDE-PluginInfo-Version=1.0.0
+X-KDE-PluginInfo-Website=https://github.com/RembrandtZ4/Neo11-Icons
+X-KDE-PluginInfo-Category=
+X-KDE-PluginInfo-License=LGPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-Plasma-API=5.0
+
+[ContrastEffect]
+enabled=false
+contrast=0.2
+intensity=1.4
+saturation=1
+
+[AdaptiveTransparency]
+enabled=true

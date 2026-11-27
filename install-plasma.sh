@@ -10,7 +10,8 @@ mkdir -p "$HOME/.local/share/plasma/desktoptheme" "$HOME/.local/share/color-sche
 # Ordner nicht erst löschen (sonst fällt ein laufendes Plasma kurz auf Breeze zurück), sondern überschreiben
 mkdir -p "$HOME/.local/share/plasma/desktoptheme/Neo11"
 cp -rT plasma/desktoptheme/Neo11 "$HOME/.local/share/plasma/desktoptheme/Neo11"
-rm -f "$HOME/.local/share/plasma/desktoptheme/Neo11/metadata.desktop"   # altes Format (bis 1.0), jetzt metadata.json
+# Reste eines kurzzeitigen Versuchs mit metadata.json entfernen (damit erkannte Plasma den Stil nicht)
+rm -f "$HOME/.local/share/plasma/desktoptheme/Neo11/metadata.json" "$HOME/.local/share/plasma/desktoptheme/Neo11/plasmarc"
 cp plasma/color-schemes/Neo11.colors "$HOME/.local/share/color-schemes/Neo11.colors"
 WAR_AKTIV="$(kreadconfig6 --file plasmarc --group Theme --key name 2>/dev/null)"
 
